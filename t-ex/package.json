@@ -1,0 +1,59 @@
+{
+  "name": "takumi-ex",
+  "displayName": "Takumi_Bridge",
+  "description": "This is the bridge connecting your VS code to the Takumi Cloud, enabling seamless integration and enhanced functionality.",
+  "version": "1.0.1",
+  "publisher": "Abhilash0001",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abhi-afk-dev/Takumi_Extension.git"
+  },
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "icon": "logo.png",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:takumi.connect",
+    "onCommand:takumi.login"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "takumi.connect",
+        "title": "Takumi: Reconnect to Cloud"
+      },
+      {
+        "command": "takumi.login",
+        "title": "Takumi: Login"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npx esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.100.0",
+    "@types/ws": "^8.18.1",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.1",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3"
+  },
+  "dependencies": {
+    "@vscode/vsce": "^3.7.1",
+    "vsce": "^2.15.0",
+    "ws": "^8.19.0"
+  }
+}
